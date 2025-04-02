@@ -20,6 +20,7 @@ float randomGaussianFloat()
     return distribution(gen);
 }
 
+// displaying the kill screen at the end of the game
 void displayKillScreen(sf::RenderWindow &window, int score, sf::Sprite background, sf::Text killScreenText, sf::Text playAgainText, sf::Text killScreenScoreText, int &health, std::vector<Cookie> &cookies, std::vector<Enemy> &enemies)
 {
     window.clear();
@@ -49,6 +50,46 @@ void displayKillScreen(sf::RenderWindow &window, int score, sf::Sprite backgroun
             }
         }
     }
+}
+
+// spawning Enemies
+void spawnEnemies(sf::RenderWindow &window, std::vector<Enemy> &enemies, sf::Clock &enemyTimer)
+{
+    float newRadius = 50.0f;
+
+    float x = randomFloat(newRadius, window.getSize().x - newRadius);
+
+    float randomType = randomFloat(0, 100);
+    if (randomType <= 3)
+    {
+        enemies.emplace_back(newRadius, sf::Vector2f(x, -30), true, 0);
+    }
+    else
+    {
+        int texture = floor(randomFloat(1, 6));
+
+        enemies.emplace_back(newRadius, sf::Vector2f(x, -30), false, texture);
+    }
+    enemyTimer.restart();
+}
+
+// spawning Cookies
+void spawnCookies(sf::RenderWindow &window, std::vector<Cookie> &cookies, sf::Clock &cookieTimer)
+{
+    float newRadius = 30.0f;
+    float x = randomFloat(newRadius, window.getSize().x - newRadius);
+
+    float randomType = randomFloat(0, 100);
+    if (randomType <= 3)
+    {
+        cookies.emplace_back(newRadius, sf::Vector2f(x, -30), true, 0);
+    }
+    else
+    {
+        int texture = floor(randomFloat(1, 5));
+        cookies.emplace_back(newRadius, sf::Vector2f(x, -30), false, texture);
+    }
+    cookieTimer.restart();
 }
 
 int main()
@@ -118,8 +159,7 @@ int main()
     killScreenScore.setPosition(sf::Vector2f(575.f, 500.f));
     killScreenScore.setCharacterSize(40);
 
-    std::vector<Cookie>
-        cookies;
+    std::vector<Cookie> cookies;
     std::vector<Enemy> enemies;
     sf::Clock cookieTimer;
     sf::Clock enemyTimer;
@@ -142,44 +182,14 @@ int main()
             displayKillScreen(window, score, background, killScreenText, playAgainText, killScreenScore, health, cookies, enemies);
         }
 
-        // spawning Cookies
         if (cookieTimer.getElapsedTime().asSeconds() > ((10.f / (score + 20.f)) + 0.1f))
         {
-            float newRadius = 30.0f;
-            float x = randomFloat(newRadius, window.getSize().x - newRadius);
-
-            float randomType = randomFloat(0, 100);
-            if (randomType <= 3)
-            {
-                cookies.emplace_back(newRadius, sf::Vector2f(x, -30), true, 0);
-            }
-            else
-            {
-                int texture = floor(randomFloat(1, 5));
-                cookies.emplace_back(newRadius, sf::Vector2f(x, -30), false, texture);
-            }
-            cookieTimer.restart();
+            spawnCookies(window, cookies, cookieTimer);
         }
 
-        // spawning Enemies
         if (enemyTimer.getElapsedTime().asSeconds() > ((20.f / (score + 20.f)) + 0.2f))
         {
-            float newRadius = 50.0f;
-
-            float x = randomFloat(newRadius, window.getSize().x - newRadius);
-
-            float randomType = randomFloat(0, 100);
-            if (randomType <= 3)
-            {
-                enemies.emplace_back(newRadius, sf::Vector2f(x, -30), true, 0);
-            }
-            else
-            {
-                int texture = floor(randomFloat(1, 6));
-
-                enemies.emplace_back(newRadius, sf::Vector2f(x, -30), false, texture);
-            }
-            enemyTimer.restart();
+            spawnEnemies(window, enemies, enemyTimer);
         }
 
         // Move the player
