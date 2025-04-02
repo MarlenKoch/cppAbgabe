@@ -1,4 +1,4 @@
-#include "Enemy.h"
+#include "Enemy.hpp"
 #include <cmath>
 
 Enemy::Enemy(float radius, const sf::Vector2f &position, bool isBomb, int texture)

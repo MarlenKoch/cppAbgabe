@@ -1,4 +1,4 @@
-#include "Cookie.h"
+#include "Cookie.hpp"
 #include <cmath>
 
 Cookie::Cookie(float radius, const sf::Vector2f &position, bool isFly, int texture)

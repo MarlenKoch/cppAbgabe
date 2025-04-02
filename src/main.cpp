@@ -1,8 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <random>
 #include <iostream>
-#include "Cookie.h"
-#include "Enemy.h"
+#include "Cookie.hpp"
+#include "Enemy.hpp"
 
 float randomFloat(float min, float max)
 {
@@ -18,6 +18,37 @@ float randomGaussianFloat()
     static std::mt19937 gen(rd());
     std::normal_distribution<float> distribution(0, 10);
     return distribution(gen);
+}
+
+void displayKillScreen(sf::RenderWindow &window, int score, sf::Sprite background, sf::Text killScreenText, sf::Text playAgainText, sf::Text killScreenScoreText, int &health, std::vector<Cookie> &cookies, std::vector<Enemy> &enemies)
+{
+    window.clear();
+    window.draw(background);
+    window.draw(killScreenText);
+    window.draw(playAgainText);
+    killScreenScoreText.setString("Your score was:  " + std::to_string(score));
+    window.draw(killScreenScoreText);
+    window.display();
+
+    bool waitingForClick = true;
+    while (waitingForClick)
+    {
+        if (const std::optional event = window.pollEvent())
+        {
+            if (event->is<sf::Event::Closed>())
+            {
+                window.close();
+            }
+            if (event->is<sf::Event::MouseButtonPressed>())
+            {
+                waitingForClick = false;
+                health = 5;
+                score = 0;
+                cookies.clear();
+                enemies.clear();
+            }
+        }
+    }
 }
 
 int main()
@@ -108,34 +139,7 @@ int main()
 
         if (health <= 0)
         {
-            window.clear();
-            window.draw(background);
-            window.draw(killScreenText);
-            window.draw(playAgainText);
-            killScreenScore.setString("Your score was:  " + std::to_string(score));
-            window.draw(killScreenScore);
-            window.display();
-
-            bool waitingForClick = true;
-            while (waitingForClick)
-            {
-                if (const std::optional event = window.pollEvent())
-                {
-                    if (event->is<sf::Event::Closed>())
-                    {
-                        window.close();
-                        return 0;
-                    }
-                    if (event->is<sf::Event::MouseButtonPressed>())
-                    {
-                        waitingForClick = false;
-                        health = 5;
-                        score = 0;
-                        cookies.clear();
-                        enemies.clear();
-                    }
-                }
-            }
+            displayKillScreen(window, score, background, killScreenText, playAgainText, killScreenScore, health, cookies, enemies);
         }
 
         // spawning Cookies
@@ -246,6 +250,7 @@ int main()
 
         scoreText.setString(std::to_string(score));
 
+        // render to screen
         window.clear();
         window.draw(background);
 
@@ -269,4 +274,6 @@ int main()
 
         window.display();
     }
+
+    return 0;
 }

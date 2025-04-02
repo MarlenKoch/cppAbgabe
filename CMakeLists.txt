@@ -12,7 +12,6 @@ EXCLUDE_FROM_ALL
 SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
-# Add Cookie.cpp to the list of source files
 add_executable(main src/main.cpp src/Cookie.cpp src/Enemy.cpp)
 
 target_compile_features(main PRIVATE cxx_std_17)
