@@ -4,6 +4,8 @@
 
 **The Great Frog Munch** wurde im Rahmen der Vorlesung **Programmieren in C++** an der Hochschule für Wirtschaft und Recht entwickelt. Ziel des Spiels ist es, so viele Punkte wie möglich zu sammeln, indem man den Frosch am unteren Rand des Bildschirms bewegt und herunterfallende Gegenstände auffängt.
 
+Den Code kannst du dir auch auf [GitHub](https://github.com/MarlenKoch/cppAbgabe.git) anschauen.
+
 ## Spielmechanik
 
 - **Punkte sammeln:** Fange Kekse, Eis und Kuchen, um jeweils einen Punkt zu erhalten.
