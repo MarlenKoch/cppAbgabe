@@ -25,8 +25,13 @@ cmake -B build
 cmake --build build
 ./build/bin/main
 ```
-Alle Befehle sollten aus dem Ordner ausgeführt werden, in dem sich diese Readme befindet, da die Pfade zu den assets relativ angegeben sind.
+Alle Befehle sollten aus dem Ordner ausgeführt werden, in dem sich diese Readme befindet, da die Pfade zu den assets relativ angegeben sind. Im Ordner prebuild findest du einen Prebuild des Spiels. Führe dazu folgenden Befehl aus: 
 
-## Grafiken
+```bash
+./prebuild/bin/main
+```
+Der Prebuild wurde auf einem MacBook Pro M2 (macOS 15.3.2 (24D81), ARM-based) mit cmake Version 3.31.6 erstellt. 
 
-Für die Erstellung der Spielfiguren und -gegenstände wurden KI-generierte Bilder verwendet. Die Bilder wurden mithilfe von DeepAI erstellt.
+## Grafiken und Schriftart
+
+Für die Erstellung der Spielfiguren und -gegenstände wurden KI-generierte Bilder verwendet. Die Bilder wurden mithilfe von DeepAI erstellt. Als Schriftart wurde Chatkids von Khurasan verwendet.
