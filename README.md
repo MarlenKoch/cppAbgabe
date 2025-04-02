@@ -6,17 +6,13 @@
 
 ## Spielmechanik
 
-- **Punkte sammeln:**
-- Fangen Sie Kekse, Eis und Kuchen, um jeweils einen Punkt zu erhalten.
+- **Punkte sammeln:** Fange Kekse, Eis und Kuchen, um jeweils einen Punkt zu erhalten.
 
-- **Leben verlieren:**
-- Vermeiden Sie das Auffangen von Sägen, Sellerie, Kothaufen, Äxten oder Kakteen, da Sie dadurch ein Leben verlieren.
+- **Leben verlieren:** Vermeide das Auffangen von Sägen, Sellerie, Kothaufen, Äxten oder Kakteen, da du dadurch ein Leben verlierst.
 
-- **Leben gewinnen:**
-- Sie starten mit 5 Leben und können zusätzliche Leben gewinnen, indem Sie Fliegen fangen.
+- **Leben gewinnen:** Du startest mit 5 Leben und kannst zusätzliche Leben gewinnen, indem du Fliegen fängst.
 
-- **Spielende:**
-- Wenn Sie eine Bombe erwischen, ist das Spiel sofort vorbei.
+- **Spielende:** Erwischst du eine Bombe ist das Spiel vorbei.
 
 ## Kompilierung und Ausführung
 
