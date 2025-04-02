@@ -16,7 +16,7 @@
 
 ## Kompilierung und Ausführung
 
-Das Spiel lässt sich einfach kompilieren und starten. Führen Sie dazu folgende Befehle im Root-Ordner aus:
+Das Spiel lässt sich durch das ausführen der folgenden Befehle kompilieren:
 
 ```bash
 cmake -B build
