@@ -12,7 +12,7 @@
 
 - **Leben gewinnen:** Du startest mit 5 Leben und kannst zusätzliche Leben gewinnen, indem du Fliegen fängst.
 
-- **Spielende:** Erwischst du eine Bombe ist das Spiel vorbei.
+- **Spielende:** Erwischst du eine Bombe, ist das Spiel vorbei.
 
 ## Kompilierung und Ausführung
 
