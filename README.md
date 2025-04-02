@@ -23,6 +23,7 @@ cmake -B build
 cmake --build build
 ./build/bin/main
 ```
+Alle Befehle sollten aus dem Ordner ausgeführt werden, in dem sich diese Readme befindet, da die Pfade zu den assets relativ angegeben sind.
 
 ## Grafiken
 
